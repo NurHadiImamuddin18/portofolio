@@ -77,25 +77,25 @@
               <i class="fas fa-paper-plane"></i> Contact Me
             </a>
           </div>
+          <div class="scroll-indicator">
+            <div class="mouse">
+              <div class="mouse-wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+          </div>
           
         </div>
         <div class="hero-visual">
           <div class="profile-card">
             <div class="profile-image-wrapper">
               <img
-                src="mine.jpeg"
+                src="assets/images/mine.jpeg"
                 alt="Profile Photo"
                 class="profile-image"
               />
             </div>
           </div>
         </div>
-      </div>
-      <div class="scroll-indicator">
-        <div class="mouse">
-          <div class="mouse-wheel"></div>
-        </div>
-        <span>Scroll Down</span>
       </div>
     </section>
 
@@ -673,21 +673,21 @@
               the channels listed here.
             </p>
             <div class="contact-channels">
-              <a href="mailto:nurhadiimamuddin@email.com" class="channel-item">
+              <a href="mailto:nurhadiimamuddin@gmail.com" class="channel-item">
                 <div class="channel-icon"><i class="fas fa-envelope"></i></div>
                 <div>
                   <span class="channel-label">Email</span>
                   <span class="channel-value">nurhadiimamuddin@gmail.com</span>
                 </div>
               </a>
-              <a href="#" class="channel-item">
-                <div class="channel-icon"><i class="fab fa-whatsapp"></i></div>
+              <a href="https://www.instagram.com/hyadiv_/" target="_blank" class="channel-item">
+                <div class="channel-icon"><i class="fab fa-instagram"></i></div>
                 <div>
-                  <span class="channel-label">Facebook</span>
-                  <span class="channel-value">+62 812 XXXX XXXX</span>
+                  <span class="channel-label">Instagram</span>
+                  <span class="channel-value">instagram.com/hyadiv_/</span>
                 </div>
               </a>
-              <a href="#" class="channel-item">
+              <a href="https://linkedin.com/in/nur-hadi-imamuddin-0b2b85377/" target="_blank" class="channel-item">
                 <div class="channel-icon">
                   <i class="fab fa-linkedin-in"></i>
                 </div>
@@ -696,35 +696,36 @@
                   <span class="channel-value">linkedin.com/in/nur-hadi-imamuddin-0b2b85377/</span>
                 </div>
               </a>
-              <a href="#" class="channel-item">
+              <a href="https://github.com/NurHadiImamuddin18/" target="_blank" class="channel-item">
                 <div class="channel-icon"><i class="fab fa-github"></i></div>
                 <div>
                   <span class="channel-label">GitHub</span>
-                  <span class="channel-value">github.com/NurHadiImamuddin18</span>
+                  <span class="channel-value">github.com/NurHadiImamuddin18/</span>
                 </div>
               </a>
             </div>
           </div>
           <div class="contact-form-wrapper">
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="ef765abb-1103-4a5d-84c0-7ec38c68f63a">
+              <input type="hidden" name="subject" value="New message from Portfolio Website">
+              <input type="hidden" name="from_name" value="Portfolio Contact Form">
+              <input type="checkbox" name="botcheck" class="hidden" style="display:none">
               <div class="form-group">
-                <input type="text" id="name" placeholder=" " required />
+                <input type="text" id="name" name="name" placeholder=" " required />
                 <label for="name">Full Name</label>
                 <span class="form-line"></span>
               </div>
               <div class="form-group">
-                <input type="email" id="email" placeholder=" " required />
+                <input type="email" id="email" name="email" placeholder=" " required />
                 <label for="email">Email Address</label>
                 <span class="form-line"></span>
               </div>
-              <div class="form-group">
-                <input type="text" id="subject" placeholder=" " required />
-                <label for="subject">Subject</label>
-                <span class="form-line"></span>
-              </div>
+
               <div class="form-group">
                 <textarea
                   id="message"
+                  name="message"
                   rows="4"
                   placeholder=" "
                   required
@@ -732,7 +733,7 @@
                 <label for="message">Your Message</label>
                 <span class="form-line"></span>
               </div>
-              <button type="submit" class="btn btn-primary btn-full">
+              <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
                 <i class="fas fa-paper-plane"></i> Send Message
               </button>
             </form>
@@ -757,17 +758,17 @@
             </p>
           </div>
           <div class="footer-social">
-            <a href="#" class="social-link" aria-label="GitHub"
+            <a href="https://github.com/NurHadiImamuddin18/" target="_blank" class="social-link" aria-label="GitHub"
               ><i class="fab fa-github"></i
             ></a>
-            <a href="#" class="social-link" aria-label="LinkedIn"
+            <a href="https://linkedin.com/in/nur-hadi-imamuddin-0b2b85377/" target="_blank" class="social-link" aria-label="LinkedIn"
               ><i class="fab fa-linkedin-in"></i
             ></a>
-            <a href="#" class="social-link" aria-label="Instagram"
+            <a href="https://www.instagram.com/hyadiv_/" target="_blank" class="social-link" aria-label="Instagram"
               ><i class="fab fa-instagram"></i
             ></a>
-            <a href="#" class="social-link" aria-label="Twitter"
-              ><i class="fab fa-twitter"></i
+            <a href="mailto:nurhadiimamuddin@gmail.com" class="social-link" aria-label="Email"
+              ><i class="fa fa-envelope"></i
             ></a>
           </div>
         </div>
