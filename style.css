@@ -103,6 +103,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 1000;
   transition: var(--transition);
   padding: 20px 0;
+  background: #ffffff;
 }
 
 .navbar.scrolled {
@@ -183,6 +184,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
   padding: 180px 0 0;
   overflow: hidden;
+  background: #ffffff;
 }
 
 .hero::before {
@@ -1534,7 +1536,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   }
 
   .stat-item { text-align: center; }
-  .scroll-indicator { bottom: 10px; }
+  .scroll-indicator {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
 
   /* Section Title */
   .section-title { font-size: 1.8rem; }
