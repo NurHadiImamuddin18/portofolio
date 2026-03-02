@@ -205,21 +205,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
   revealElements.forEach((el) => observer.observe(el));
 
-  // --- Contact form ---
+  // --- Contact form (Formspree) ---
   const contactForm = document.getElementById("contactForm");
   if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
+    contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const btn = contactForm.querySelector('button[type="submit"]');
+      const btn = contactForm.querySelector('#submitBtn');
       const originalHTML = btn.innerHTML;
-      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-      btn.style.background = "linear-gradient(135deg, #10B981, #059669)";
 
-      setTimeout(() => {
-        btn.innerHTML = originalHTML;
-        btn.style.background = "";
-        contactForm.reset();
-      }, 3000);
+      // Loading state
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          // Success
+          btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+          btn.style.background = "linear-gradient(135deg, #22c55e, #16a34a)";
+          btn.style.opacity = '1';
+          contactForm.reset();
+
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = "";
+            btn.disabled = false;
+          }, 3000);
+        } else {
+          throw new Error("Form submission failed");
+        }
+      } catch (error) {
+        // Error
+        btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed to Send';
+        btn.style.background = "linear-gradient(135deg, #EF4444, #DC2626)";
+        btn.style.opacity = '1';
+
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.style.background = "";
+          btn.disabled = false;
+        }, 3000);
+      }
     });
   }
 
