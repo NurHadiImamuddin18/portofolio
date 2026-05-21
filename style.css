@@ -9,8 +9,8 @@
   --text-secondary: #555555;
   --border: #e0e0e0;
   
-  --font-sans: "Inter", -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: monospace;
   
   --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -58,10 +58,9 @@ ul {
 
 /* --- Typography --- */
 h1, h2, h3, h4 {
-  font-weight: 800;
-  line-height: 1.1;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
 }
 
 /* --- Navbar --- */
@@ -198,18 +197,17 @@ h1, h2, h3, h4 {
 
 /* --- About Section --- */
 .about-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 80px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .about-image {
   width: 100%;
+  max-width: 400px;
   height: auto;
   aspect-ratio: 3/4;
   object-fit: cover;
-  filter: grayscale(100%);
 }
 
 .manifesto-text {
