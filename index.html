@@ -3,21 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Nur Hadi Imamuddin - Software Engineer based in East Java."
-    />
+    <meta name="description" content="Nur Hadi Imamuddin — Software Engineer based in East Java." />
     <title>Nur Hadi Imamuddin | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -25,91 +12,69 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
       <div class="nav-container">
-        <a href="#" class="nav-logo">NUR HADI IMAMUDDIN</a>
+        <a href="#" class="nav-logo">Nur Hadi Imamuddin</a>
         <ul class="nav-links" id="navLinks">
           <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#capabilities" class="nav-link">Capabilities</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#works" class="nav-link">Works</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-        <button
-          class="nav-toggle"
-          id="navToggle"
-          aria-label="Toggle navigation"
-        >
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
           <span></span><span></span><span></span>
         </button>
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="home">
-      <div class="container hero-container reveal">
-        <h1 class="hero-title">
-          SOFTWARE ENGINEER
-        </h1>
-        <p class="hero-subtitle">
-          Specializing in modern web architectures and IoT integrations. I craft digital experiences focusing on simplicity, performance, and scalable design.
-        </p>
-        <div class="hero-actions">
-          <a href="#works" class="btn btn-dark">View Selected Works</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section" id="about">
-      <div class="container reveal">
-        <div class="section-header">
-          <h2 class="section-title">01 / ABOUT</h2>
-        </div>
-        <div class="about-content">
-          <div class="about-layout">
-            <div class="about-image-wrapper">
-              <img src="assets/images/mine.jpeg" alt="Nur Hadi Imamuddin" class="about-image">
-            </div>
-            <div class="about-text-content">
-              <p class="manifesto-text">
-                I engineer robust, user-centric systems with a strong foundation in both front-end aesthetics and back-end logic.
-              </p>
-              <p class="manifesto-text">
-                Based in East Java, I bridge the gap between complex problems and elegant solutions, constantly pushing the boundaries of web technologies and smart ecosystems.
-              </p>
-              <div class="about-details">
-                <div class="detail-item">
-                  <span class="detail-label">Name</span>
-                  <span class="detail-value">Nur Hadi Imamuddin</span>
-                </div>
-                <div class="detail-item">
-                  <span class="detail-label">Date of Birth</span>
-                  <span class="detail-value">January 18th, 2005</span>
-                </div>
-                <div class="detail-item">
-                  <span class="detail-label">Location</span>
-                  <span class="detail-value">East Java, Indonesia</span>
-                </div>
-                <div class="detail-item">
-                  <span class="detail-label">Contact</span>
-                  <span class="detail-value">nurhadiimamuddin@gmail.com</span>
-                </div>
-              </div>
-            </div>
+      <div class="container">
+        <div class="hero-layout reveal">
+          <div class="hero-text">
+            <h1>Software Engineer</h1>
+            <p>Specializing in modern web architectures and IoT integrations. I craft digital experiences focusing on simplicity, performance, and scalable design.</p>
+            <a href="#works" class="btn">View Selected Works</a>
+          </div>
+          <div class="hero-photo">
+            <img src="assets/images/mine.jpeg" alt="Nur Hadi Imamuddin" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Capabilities Section -->
-    <section class="section section-alt" id="capabilities">
+    <!-- About -->
+    <section class="section" id="about">
       <div class="container reveal">
-        <div class="section-header">
-          <h2 class="section-title">02 / CAPABILITIES</h2>
+        <h2>About</h2>
+        <div class="about-grid">
+          <div class="about-bio">
+            <p>I engineer robust, user-centric systems with a strong foundation in both front-end aesthetics and back-end logic.</p>
+            <p>Based in East Java, I bridge the gap between complex problems and elegant solutions, constantly pushing the boundaries of web technologies and smart ecosystems.</p>
+          </div>
+          <div class="about-details">
+            <dl>
+              <dt>Name</dt>
+              <dd>Nur Hadi Imamuddin</dd>
+              <dt>Date of Birth</dt>
+              <dd>January 18, 2005</dd>
+              <dt>Location</dt>
+              <dd>East Java, Indonesia</dd>
+              <dt>Email</dt>
+              <dd>nurhadiimamuddin@gmail.com</dd>
+            </dl>
+          </div>
         </div>
-        <div class="capabilities-grid">
-          <div class="cap-group">
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section section-alt" id="skills">
+      <div class="container reveal">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div>
             <h3>Development</h3>
-            <ul class="clean-list">
+            <ul>
               <li>Front-End Engineering</li>
               <li>Back-End Architecture</li>
               <li>Database Design</li>
@@ -117,9 +82,9 @@
               <li>IoT Integrations</li>
             </ul>
           </div>
-          <div class="cap-group">
+          <div>
             <h3>Technologies</h3>
-            <ul class="clean-list">
+            <ul>
               <li>HTML5, CSS3, JavaScript</li>
               <li>PHP, Python</li>
               <li>Laravel, React, Vue.js</li>
@@ -127,9 +92,9 @@
               <li>Git, Node.js</li>
             </ul>
           </div>
-          <div class="cap-group">
+          <div>
             <h3>Soft Skills</h3>
-            <ul class="clean-list">
+            <ul>
               <li>Problem Solving</li>
               <li>Critical Thinking</li>
               <li>Team Collaboration</li>
@@ -141,157 +106,115 @@
       </div>
     </section>
 
-    <!-- Works Section -->
+    <!-- Works -->
     <section class="section" id="works">
       <div class="container reveal">
-        <div class="section-header">
-          <h2 class="section-title">03 / SELECTED WORKS</h2>
-        </div>
+        <h2>Selected Works</h2>
         <div class="works-list">
-          
           <div class="work-item">
-            <div class="work-info">
+            <div class="work-number">01</div>
+            <div class="work-body">
               <h3>Building Management System</h3>
               <p>Smart building management app with IoT monitoring, attendance, and occupant management features.</p>
-              <div class="work-tags">
-                <span>PHP</span><span>MySQL</span><span>Bootstrap</span>
-              </div>
-            </div>
-            <div class="work-image-placeholder">
-              <span>BMS</span>
+              <span class="work-tech">PHP / MySQL / Bootstrap</span>
             </div>
           </div>
-
           <div class="work-item">
-            <div class="work-info">
+            <div class="work-number">02</div>
+            <div class="work-body">
               <h3>RESTful API Service</h3>
               <p>Scalable backend API service with JWT authentication, rate limiting, and Swagger documentation.</p>
-              <div class="work-tags">
-                <span>Node.js</span><span>MongoDB</span><span>REST API</span>
-              </div>
-            </div>
-            <div class="work-image-placeholder">
-              <span>API</span>
+              <span class="work-tech">Node.js / MongoDB / REST API</span>
             </div>
           </div>
-
           <div class="work-item">
-            <div class="work-info">
+            <div class="work-number">03</div>
+            <div class="work-body">
               <h3>Real-time Chat App</h3>
               <p>Real-time chat application with group features, media sharing, and push notifications.</p>
-              <div class="work-tags">
-                <span>PHP</span><span>WebSocket</span><span>MySQL</span>
-              </div>
-            </div>
-            <div class="work-image-placeholder">
-              <span>CHAT</span>
+              <span class="work-tech">PHP / WebSocket / MySQL</span>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience -->
     <section class="section section-alt" id="experience">
       <div class="container reveal">
-        <div class="section-header">
-          <h2 class="section-title">04 / EXPERIENCE & EDUCATION</h2>
-        </div>
-        
-        <div class="tabular-list">
-          <div class="tabular-item">
-            <div class="tabular-year">2023 &mdash; Present</div>
-            <div class="tabular-role">Freelance Web Developer</div>
-            <div class="tabular-org">Independent</div>
+        <h2>Experience</h2>
+        <div class="exp-list">
+          <div class="exp-item">
+            <span class="exp-year">2023 — Present</span>
+            <span class="exp-role">Freelance Web Developer</span>
+            <span class="exp-org">Independent</span>
           </div>
-          <div class="tabular-item">
-            <div class="tabular-year">2022 &mdash; 2023</div>
-            <div class="tabular-role">Junior Web Developer</div>
-            <div class="tabular-org">Tech Agency</div>
+          <div class="exp-item">
+            <span class="exp-year">2022 — 2023</span>
+            <span class="exp-role">Junior Web Developer</span>
+            <span class="exp-org">Tech Agency</span>
           </div>
-          <div class="tabular-item">
-            <div class="tabular-year">2021 &mdash; 2022</div>
-            <div class="tabular-role">Web Development Intern</div>
-            <div class="tabular-org">Startup Inc.</div>
+          <div class="exp-item">
+            <span class="exp-year">2021 — 2022</span>
+            <span class="exp-role">Web Development Intern</span>
+            <span class="exp-org">Startup Inc.</span>
           </div>
         </div>
 
-        <h3 class="subsection-title">Certifications</h3>
-        <div class="tabular-list">
-          <div class="tabular-item">
-            <div class="tabular-year">2025</div>
-            <div class="tabular-role">Web Development Fundamentals</div>
-            <div class="tabular-org">Google Digital Garage</div>
+        <h3 class="sub-heading">Certifications</h3>
+        <div class="exp-list">
+          <div class="exp-item">
+            <span class="exp-year">2025</span>
+            <span class="exp-role">Web Development Fundamentals</span>
+            <span class="exp-org">Google Digital Garage</span>
           </div>
-          <div class="tabular-item">
-            <div class="tabular-year">2025</div>
-            <div class="tabular-role">JavaScript Algorithms & Data Structures</div>
-            <div class="tabular-org">freeCodeCamp</div>
+          <div class="exp-item">
+            <span class="exp-year">2025</span>
+            <span class="exp-role">JavaScript Algorithms & Data Structures</span>
+            <span class="exp-org">freeCodeCamp</span>
           </div>
-          <div class="tabular-item">
-            <div class="tabular-year">2024</div>
-            <div class="tabular-role">PHP & MySQL Full Stack</div>
-            <div class="tabular-org">Udemy</div>
+          <div class="exp-item">
+            <span class="exp-year">2024</span>
+            <span class="exp-role">PHP & MySQL Full Stack</span>
+            <span class="exp-org">Udemy</span>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section class="section" id="contact">
       <div class="container reveal">
-        <h1 class="mega-title">LET'S TALK.</h1>
+        <h2>Let's Talk</h2>
         <div class="contact-layout">
-          
           <div class="contact-info">
-            <p class="contact-text">
-              Interested in collaborating or have a project in mind? Let's build something exceptional together.
-            </p>
+            <p>Interested in collaborating or have a project in mind? Let's build something exceptional together.</p>
             <ul class="contact-links">
-              <li><a href="mailto:nurhadiimamuddin@gmail.com" target="_blank">Email &nearr;</a></li>
-              <li><a href="https://linkedin.com/in/nur-hadi-imamuddin-0b2b85377/" target="_blank">LinkedIn &nearr;</a></li>
-              <li><a href="https://github.com/NurHadiImamuddin18/" target="_blank">GitHub &nearr;</a></li>
-              <li><a href="https://www.instagram.com/hyadiv_/" target="_blank">Instagram &nearr;</a></li>
+              <li><a href="mailto:nurhadiimamuddin@gmail.com">Email</a></li>
+              <li><a href="https://linkedin.com/in/nur-hadi-imamuddin-0b2b85377/" target="_blank">LinkedIn</a></li>
+              <li><a href="https://github.com/NurHadiImamuddin18/" target="_blank">GitHub</a></li>
+              <li><a href="https://www.instagram.com/hyadiv_/" target="_blank">Instagram</a></li>
             </ul>
           </div>
-
-          <div class="contact-form-container">
-            <form class="minimal-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-              <input type="hidden" name="access_key" value="ef765abb-1103-4a5d-84c0-7ec38c68f63a">
-              <input type="hidden" name="subject" value="New message from Portfolio Website">
-              <input type="hidden" name="from_name" value="Portfolio Contact Form">
-              <input type="checkbox" name="botcheck" class="hidden" style="display:none">
-              
-              <div class="form-group">
-                <input type="text" id="name" name="name" placeholder="Name" required />
-              </div>
-              <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="Email Address" required />
-              </div>
-              <div class="form-group">
-                <textarea id="message" name="message" rows="3" placeholder="Your Message" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-dark" id="submitBtn">Send Message</button>
-            </form>
-          </div>
-
+          <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="ef765abb-1103-4a5d-84c0-7ec38c68f63a">
+            <input type="hidden" name="subject" value="New message from Portfolio Website">
+            <input type="hidden" name="from_name" value="Portfolio Contact Form">
+            <input type="checkbox" name="botcheck" style="display:none">
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <textarea name="message" rows="4" placeholder="Message" required></textarea>
+            <button type="submit" class="btn" id="submitBtn">Send Message</button>
+          </form>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="container">
-        <div class="footer-layout">
-          <div class="footer-brand">
-            NUR HADI IMAMUDDIN
-          </div>
-          <div class="footer-copy">
-            &copy; 2026. All rights reserved.
-          </div>
-        </div>
+      <div class="container footer-inner">
+        <span>Nur Hadi Imamuddin</span>
+        <span>&copy; 2026</span>
       </div>
     </footer>
 
