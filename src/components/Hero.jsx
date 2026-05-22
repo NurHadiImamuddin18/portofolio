@@ -75,7 +75,7 @@ export default function Hero() {
           <ScrollReveal delay={0.3} className="hero-image">
             <div className="hero-img-wrapper">
               <Image
-                src="/images/mine.jpeg"
+                src="/portofolio/images/mine.jpeg"
                 alt="Nur Hadi Imamuddin"
                 width={420}
                 height={525}
