@@ -10,7 +10,7 @@ const projects = [
     name: "Building Mgmt System",
     desc: "Smart building management app with IoT monitoring, attendance, and occupant management features.",
     tech: ["PHP", "MySQL", "Bootstrap"],
-    image: "/images/building_mgmt_ui.png",
+    image: "/portofolio/images/building_mgmt_ui.png",
   },
   {
     num: "02",
@@ -18,7 +18,7 @@ const projects = [
     name: "RESTful API Service",
     desc: "Scalable backend API service with JWT authentication, rate limiting, and Swagger documentation.",
     tech: ["Node.js", "MongoDB", "REST"],
-    image: "/images/api_dashboard_ui.png",
+    image: "/portofolio/images/api_dashboard_ui.png",
   },
   {
     num: "03",
@@ -26,7 +26,7 @@ const projects = [
     name: "Real-time Chat App",
     desc: "Real-time chat application with group features, media sharing, and push notifications.",
     tech: ["PHP", "WebSocket", "MySQL"],
-    image: "/images/chat_app_ui.png",
+    image: "/portofolio/images/chat_app_ui.png",
   },
 ];
 

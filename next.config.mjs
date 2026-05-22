@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Mengubah Next.js menjadi HTML Statis
+  output: 'export', // Wajib jika Anda deploy ke GitHub Pages (Static HTML Export)
+  basePath: '/portofolio',
+  assetPrefix: '/portofolio',
   images: {
-    unoptimized: true, // Wajib untuk GitHub Pages
+    unoptimized: true, // Wajib diaktifkan karena GitHub Pages tidak mendukung optimasi gambar otomatis Next.js
   },
-  basePath: '/portofolio', // Menyesuaikan dengan nama repositori kamu
-  assetPrefix: '/portofolio/', // Menyesuaikan link aset dengan nama repositori
 };
-
 export default nextConfig;
