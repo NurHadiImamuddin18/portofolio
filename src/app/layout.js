@@ -1,7 +1,5 @@
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
-import AmbientBackground from "@/components/AmbientBackground";
 
 const inter = Inter({
   variable: "--font-body",
@@ -31,10 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <body style={{ fontFamily: "var(--font-body)" }}>
-        <SmoothScroll>
-          <AmbientBackground />
-          {children}
-        </SmoothScroll>
+        {children}
       </body>
     </html>
   );

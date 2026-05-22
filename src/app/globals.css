@@ -3,8 +3,8 @@
    ============================================ */
 
 :root {
-  --bg: #fafafa;
-  --bg-alt: #f3f3f3;
+  --bg: #ffffff;
+  --bg-alt: #f7f7f7;
   --text: #0a0a0a;
   --text-muted: #737373;
   --accent: #0a0a0a;
@@ -27,6 +27,7 @@
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -77,6 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ---- Sections ---- */
 .section {
   padding: 140px 0;
+  background-color: var(--bg);
 }
 
 .section-alt {
@@ -108,12 +110,13 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--text);
   border-radius: 100px;
   cursor: pointer;
-  transition: transform 0.3s var(--ease), background 0.3s var(--ease), color 0.3s var(--ease);
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease), color 0.3s var(--ease), box-shadow 0.3s var(--ease);
   white-space: nowrap;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .btn-outline {
@@ -125,6 +128,8 @@ h1, h2, h3, h4, h5, h6 {
 .btn-outline:hover {
   background: var(--text);
   color: var(--bg);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 /* ============== NAVBAR ============== */
@@ -142,7 +147,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar.scrolled {
   padding: 14px 0;
-  background: rgba(250, 250, 250, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom-color: var(--border);
@@ -162,6 +167,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--text);
+  transition: transform 0.3s var(--ease);
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
 }
 
 .nav-links {
@@ -173,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   font-weight: 500;
   color: var(--text-muted);
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
   position: relative;
   cursor: pointer;
   background: none;
@@ -194,6 +204,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link:hover {
   color: var(--text);
+  transform: translateY(-1px);
 }
 
 .nav-link:hover::after {
@@ -234,6 +245,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   padding-top: 100px;
+  background-color: var(--bg);
 }
 
 .hero-layout {
@@ -304,6 +316,11 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.hero-img-wrapper:hover img {
+  transform: scale(1.03);
 }
 
 /* ============== ABOUT ============== */
@@ -341,6 +358,11 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  transition: transform 0.3s var(--ease);
+}
+
+.detail-item:hover {
+  transform: translateX(6px);
 }
 
 .detail-label {
@@ -376,7 +398,8 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-muted);
   padding: 12px 0;
   border-bottom: 1px solid var(--border);
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s var(--ease), padding-left 0.3s var(--ease);
+  cursor: default;
 }
 
 .skills-list li:last-child {
@@ -385,6 +408,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .skills-list li:hover {
   color: var(--text);
+  transform: translateX(8px);
+  padding-left: 4px;
 }
 
 /* ============== WORKS ============== */
@@ -399,6 +424,11 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: 320px 1fr;
   gap: 40px;
   align-items: center;
+  transition: transform 0.4s var(--ease);
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
 }
 
 .work-img-wrapper {
@@ -446,6 +476,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin-bottom: 12px;
   letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+}
+
+.work-card:hover .work-name {
+  color: var(--text-muted);
 }
 
 .work-desc {
@@ -470,6 +505,13 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 100px;
   color: var(--text-muted);
   font-weight: 500;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.work-tech span:hover {
+  background: var(--text);
+  color: var(--bg);
+  transform: translateY(-2px);
 }
 
 /* ============== EXPERIENCE ============== */
@@ -493,6 +535,11 @@ h1, h2, h3, h4, h5, h6 {
   gap: 16px;
   padding: 24px 0;
   border-bottom: 1px solid var(--border);
+  transition: transform 0.3s var(--ease), background 0.3s ease;
+}
+
+.exp-row:hover {
+  transform: translateX(6px);
 }
 
 .exp-year {
@@ -505,6 +552,11 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.exp-row:hover .exp-title {
+  color: var(--text);
 }
 
 .exp-org {
@@ -539,7 +591,11 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   width: fit-content;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s var(--ease);
+}
+
+.contact-link:hover {
+  transform: translateX(8px);
 }
 
 .contact-link::after {
@@ -582,6 +638,12 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px 0;
   outline: none;
   resize: none;
+  transition: transform 0.3s var(--ease);
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  transform: translateX(4px);
 }
 
 .input-group label {
@@ -609,7 +671,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 1px;
+  height: 2px;
   background: var(--text);
   transition: width 0.4s var(--ease);
 }
@@ -633,7 +695,7 @@ h1, h2, h3, h4, h5, h6 {
 .footer {
   padding: 36px 0;
   border-top: 1px solid var(--border);
-  background: var(--bg-alt);
+  background: var(--bg);
 }
 
 .footer-inner {
@@ -645,7 +707,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .back-to-top {
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s var(--ease);
   cursor: pointer;
   background: none;
   border: none;
@@ -656,6 +718,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .back-to-top:hover {
   color: var(--text);
+  transform: translateY(-2px);
 }
 
 /* ============== RESPONSIVE ============== */
@@ -746,94 +809,3 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 36px;
   }
 }
-
-/* ============================================
-   Lenis Smooth Scroll Integration
-   ============================================ */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
-
-/* ============================================
-   Ambient Blob Dynamic Background
-   ============================================ */
-.ambient-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
-  background: var(--bg);
-}
-
-.ambient-blob {
-  position: absolute;
-  width: 60vw;
-  height: 60vw;
-  border-radius: 50%;
-  filter: blur(140px);
-  opacity: 0.08;
-  mix-blend-mode: multiply;
-  will-change: transform;
-  animation: drift 25s infinite alternate ease-in-out;
-}
-
-.blob-1 {
-  background: #ff7e47; /* soft warm orange/peach */
-  top: -15%;
-  left: -10%;
-}
-
-.blob-2 {
-  background: #6366f1; /* soft indigo */
-  bottom: -15%;
-  right: -10%;
-  animation-delay: -5s;
-  animation-duration: 30s;
-}
-
-.blob-3 {
-  background: #ec4899; /* soft deep pink */
-  top: 35%;
-  left: 30%;
-  width: 45vw;
-  height: 45vw;
-  animation-delay: -10s;
-  animation-duration: 22s;
-}
-
-@keyframes drift {
-  0% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
-  }
-  33% {
-    transform: translate(8vw, 8vh) scale(1.15) rotate(120deg);
-  }
-  66% {
-    transform: translate(-4vw, 12vh) scale(0.9) rotate(240deg);
-  }
-  100% {
-    transform: translate(0, 0) scale(1) rotate(360deg);
-  }
-}
-

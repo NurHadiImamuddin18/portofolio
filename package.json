@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out"
+    "deploy": "gh-pages -d out --dotfiles -r https://github.com/NurHadiImamuddin18/portofolio.git --git \"C:\\Program Files\\Git\\cmd\\git.exe\""
   },
   "dependencies": {
     "framer-motion": "^10.18.0",
