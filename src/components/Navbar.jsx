@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { useLenis } from "lenis/react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const lenis = useLenis();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -15,10 +17,17 @@ export default function Navbar() {
   const scrollTo = useCallback(
     (id) => {
       setMenuOpen(false);
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
+      if (lenis) {
+        lenis.scrollTo(`#${id}`, {
+          duration: 1.4,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
+      } else {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
     },
-    []
+    [lenis]
   );
 
   const links = [

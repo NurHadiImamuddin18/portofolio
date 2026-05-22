@@ -25,7 +25,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -747,3 +746,94 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 36px;
   }
 }
+
+/* ============================================
+   Lenis Smooth Scroll Integration
+   ============================================ */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ============================================
+   Ambient Blob Dynamic Background
+   ============================================ */
+.ambient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--bg);
+}
+
+.ambient-blob {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+  will-change: transform;
+  animation: drift 25s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+  background: #ff7e47; /* soft warm orange/peach */
+  top: -15%;
+  left: -10%;
+}
+
+.blob-2 {
+  background: #6366f1; /* soft indigo */
+  bottom: -15%;
+  right: -10%;
+  animation-delay: -5s;
+  animation-duration: 30s;
+}
+
+.blob-3 {
+  background: #ec4899; /* soft deep pink */
+  top: 35%;
+  left: 30%;
+  width: 45vw;
+  height: 45vw;
+  animation-delay: -10s;
+  animation-duration: 22s;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(8vw, 8vh) scale(1.15) rotate(120deg);
+  }
+  66% {
+    transform: translate(-4vw, 12vh) scale(0.9) rotate(240deg);
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(360deg);
+  }
+}
+

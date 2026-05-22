@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
+import { useLenis } from "lenis/react";
 
 export default function Hero() {
+  const lenis = useLenis();
   const titleVariants = {
     hidden: { y: "110%" },
     visible: (i) => ({
@@ -53,8 +55,15 @@ export default function Hero() {
                 <button
                   className="btn"
                   onClick={() => {
-                    const el = document.getElementById("works");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                    if (lenis) {
+                      lenis.scrollTo("#works", {
+                        duration: 1.4,
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                      });
+                    } else {
+                      const el = document.getElementById("works");
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                    }
                   }}
                 >
                   Explore Works
