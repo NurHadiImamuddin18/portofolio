@@ -59,7 +59,10 @@ export default function Works() {
                 </div>
                 <div>
                   <div className="work-meta">
-                    <span className="work-num" style={{ fontFamily: "var(--font-heading)" }}>
+                    <span
+                      className="work-num"
+                      style={{ fontFamily: "var(--font-heading)" }}
+                    >
                       {project.num}
                     </span>
                     <span className="work-role">{project.role}</span>

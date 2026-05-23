@@ -18,8 +18,8 @@ const columns = [
     items: [
       "HTML5, CSS3, JavaScript",
       "PHP, Python",
-      "Laravel, React, Vue.js",
-      "MySQL, MongoDB",
+      "Laravel, Native, React",
+      "MySQL, Firebase",
       "Git, Node.js",
     ],
   },
@@ -30,7 +30,7 @@ const columns = [
       "Critical Thinking",
       "Team Collaboration",
       "Time Management",
-      "Effective Communication",
+      "Leadership",
     ],
   },
 ];

@@ -420,10 +420,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .work-card {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 40px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
   transition: transform 0.4s var(--ease);
 }
 
@@ -773,7 +773,6 @@ h1, h2, h3, h4, h5, h6 {
     gap: 48px;
   }
   .work-card {
-    grid-template-columns: 1fr;
     gap: 24px;
   }
   .exp-row {
