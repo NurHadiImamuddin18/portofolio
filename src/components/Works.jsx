@@ -48,12 +48,12 @@ export default function Works() {
                   <Image
                     src={project.image}
                     alt={project.name}
-                    width={640}
-                    height={360}
+                    width={1920}
+                    height={1080}
                     style={{
                       width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
+                      height: "auto",
+                      display: "block"
                     }}
                   />
                 </div>
@@ -71,7 +71,8 @@ export default function Works() {
                     className="work-name"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
-                    {project.name}
+                    <span>{project.name}</span>
+                    <span className="work-arrow">↗</span>
                   </h3>
                   <p className="work-desc">{project.desc}</p>
                   <div className="work-tech">
