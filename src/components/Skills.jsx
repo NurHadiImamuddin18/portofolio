@@ -17,7 +17,7 @@ const columns = [
     title: "Technologies",
     items: [
       "HTML5, CSS3, JavaScript",
-      "PHP, Python",
+      "PHP, Python, C++",
       "Laravel, Native, React",
       "MySQL, Firebase",
       "Git, Node.js",
