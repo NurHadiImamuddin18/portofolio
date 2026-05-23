@@ -41,7 +41,7 @@ export default function Skills() {
       <div className="container">
         <ScrollReveal>
           <div className="section-header">
-            <h2 className="section-label">02 / Skills</h2>
+            <h2 className="section-label">Skills</h2>
           </div>
         </ScrollReveal>
 

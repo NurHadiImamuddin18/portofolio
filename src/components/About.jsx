@@ -15,20 +15,17 @@ export default function About() {
       <div className="container">
         <ScrollReveal>
           <div className="section-header">
-            <h2 className="section-label">01 / About</h2>
+            <h2 className="section-label">About</h2>
           </div>
         </ScrollReveal>
 
         <div className="about-grid">
           <ScrollReveal>
             <p className="about-lead" style={{ fontFamily: "var(--font-heading)" }}>
-              I bridge the gap between complex engineering and elegant design.
+              Crafting the perfect balance between robust engineering and minimalist design.
             </p>
             <p className="about-body">
-              My work involves building robust, user-centric systems—ranging
-              from full-stack web applications to smart IoT integrations. I
-              believe that true simplicity requires the highest level of
-              craftsmanship.
+              From web applications to smart IoT integrations, I engineer robust systems designed around the user. I believe that achieving true simplicity requires meticulous craftsmanship.
             </p>
           </ScrollReveal>
 

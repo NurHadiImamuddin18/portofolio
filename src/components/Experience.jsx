@@ -68,7 +68,7 @@ export default function Experience() {
       <div className="container">
         <ScrollReveal>
           <div className="section-header">
-            <h2 className="section-label">04 / Experience</h2>
+            <h2 className="section-label">Experience</h2>
           </div>
         </ScrollReveal>
 

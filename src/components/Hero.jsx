@@ -47,8 +47,8 @@ export default function Hero() {
             <div className="hero-bottom">
               <ScrollReveal delay={0.4}>
                 <p className="hero-desc">
-                  I craft digital experiences with a focus on deep logic, sleek
-                  aesthetics, and scalable architectures.
+                 Specializing in web development and smart device integration,
+                  combining secure backend architecture with a strong problem-solving mindset to deliver reliable systems.
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.5}>

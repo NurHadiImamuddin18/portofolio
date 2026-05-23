@@ -36,7 +36,7 @@ export default function Works() {
       <div className="container">
         <ScrollReveal>
           <div className="section-header">
-            <h2 className="section-label">03 / Selected Works</h2>
+            <h2 className="section-label">Selected Works</h2>
           </div>
         </ScrollReveal>
 
