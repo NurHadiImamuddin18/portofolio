@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useLenis } from "lenis/react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,9 +45,9 @@ export default function Navbar() {
         <button
           className="nav-logo"
           onClick={() => scrollTo("home")}
-          style={{ cursor: "pointer", background: "none", border: "none", fontFamily: "var(--font-heading)" }}
+          style={{ cursor: "pointer", background: "none", border: "none" }}
         >
-          NHI.
+          <Image src="/images/logo.png" alt="Logo" width={40} height={40} style={{ objectFit: 'contain' }} />
         </button>
 
         <div className={`nav-links ${menuOpen ? "active" : ""}`}>
