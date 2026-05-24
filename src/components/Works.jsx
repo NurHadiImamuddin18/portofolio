@@ -10,7 +10,7 @@ const projects = [
     name: "Evolving Framework for Integrated Infrastructure Data",
     desc: "An Application for Data Management and Installation Official Reports of New Customers at PT Telkom Akses Malang Region.",
     tech: ["PHP", "MySQL", "Bootstrap", "Python"],
-    image: "/portofolio/images/efidi.png",
+    image: "/images/efidi.png",
     link: "https://efidi.montaklo.id/",
   },
   {
@@ -19,7 +19,7 @@ const projects = [
     name: "Identification Environment for Trusted Identity Authentication",
     desc: "A Web-Based Application for Monitoring, Managing, and Controlling Rooms and Occupants with Web-Enabled Access Control.",
     tech: ["PHP", "MySQL", "C++"],
-    image: "/portofolio/images/identia.png",
+    image: "/images/identia.png",
     link: "https://identia.montaklo.id/",
   },
   {
@@ -28,7 +28,7 @@ const projects = [
     name: "Managing enterprise network integrity and data streams",
     desc: "As the core master portal, Montaklo dynamically integrates various independent data monitoring websites",
     tech: ["React", "Next JS"],
-    image: "/portofolio/images/montaklo.png",
+    image: "/images/montaklo.png",
     link: "https://montaklo.id/",
   },
 ];
