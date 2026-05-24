@@ -13,6 +13,17 @@
 
   --ease: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --nav-bg: rgba(255, 255, 255, 0.9);
+}
+
+html.dark {
+  --bg: #0a0a0a;
+  --bg-alt: #171717;
+  --text: #ffffff;
+  --text-muted: #a3a3a3;
+  --accent: #ffffff;
+  --border: #262626;
+  --nav-bg: rgba(10, 10, 10, 0.9);
 }
 
 /* Reset */
@@ -147,7 +158,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar.scrolled {
   padding: 14px 0;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--nav-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom-color: var(--border);
