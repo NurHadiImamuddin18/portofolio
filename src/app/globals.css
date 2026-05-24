@@ -4,7 +4,7 @@
 
 :root {
   --bg: #ffffff;
-  --bg-alt: #f7f7f7;
+  --bg-alt: #fafafa;
   --text: #0a0a0a;
   --text-muted: #737373;
   --accent: #0a0a0a;
@@ -18,7 +18,7 @@
 
 html.dark {
   --bg: #0a0a0a;
-  --bg-alt: #171717;
+  --bg-alt: #111111;
   --text: #ffffff;
   --text-muted: #a3a3a3;
   --accent: #ffffff;
@@ -319,14 +319,32 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: 420px;
   aspect-ratio: 4 / 5;
-  overflow: hidden;
   border-radius: var(--radius);
+  transition: all 0.4s var(--ease);
 }
 
 .hero-img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: var(--radius);
+}
+
+/* Polaroid effect for dark mode to handle the white background */
+html.dark .hero-img-wrapper {
+  background-color: #ffffff;
+  padding: 16px 16px 24px 16px;
+  border-radius: 8px;
+  transform: rotate(2deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+html.dark .hero-img-wrapper:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+html.dark .hero-img-wrapper img {
+  border-radius: 4px;
 }
 
 /* ============== ABOUT ============== */
