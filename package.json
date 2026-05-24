@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d out --dotfiles -r https://github.com/NurHadiImamuddin18/portofolio.git --git \"C:\\Program Files\\Git\\cmd\\git.exe\""
+    "lint": "next lint"
   },
   "dependencies": {
     "framer-motion": "^10.18.0",
@@ -19,7 +17,6 @@
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "13.5.6",
-    "gh-pages": "^6.3.0"
+    "eslint-config-next": "13.5.6"
   }
 }
