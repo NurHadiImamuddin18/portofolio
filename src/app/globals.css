@@ -330,21 +330,17 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius);
 }
 
-/* Polaroid effect for dark mode to handle the white background */
-html.dark .hero-img-wrapper {
-  background-color: #ffffff;
-  padding: 16px 16px 24px 16px;
-  border-radius: 8px;
-  transform: rotate(2deg);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+/* Theme-specific images */
+.hero-img-dark {
+  display: none !important;
 }
 
-html.dark .hero-img-wrapper:hover {
-  transform: rotate(0deg) scale(1.02);
+html.dark .hero-img-dark {
+  display: block !important;
 }
 
-html.dark .hero-img-wrapper img {
-  border-radius: 4px;
+html.dark .hero-img-light {
+  display: none !important;
 }
 
 /* ============== ABOUT ============== */
