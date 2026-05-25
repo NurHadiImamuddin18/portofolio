@@ -185,6 +185,10 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.05);
 }
 
+html.dark .logo-img {
+  filter: brightness(0) invert(1);
+}
+
 .nav-links {
   display: flex;
   gap: 36px;

@@ -68,7 +68,7 @@ export default function Navbar() {
           onClick={() => scrollTo("home")}
           style={{ cursor: "pointer", background: "none", border: "none" }}
         >
-          <Image src="/images/logo.png" alt="Logo" width={40} height={40} style={{ objectFit: 'contain' }} />
+          <Image src="/images/logo.png" alt="Logo" width={40} height={40} className="logo-img" style={{ objectFit: 'contain' }} />
         </button>
 
         <div className={`nav-links ${menuOpen ? "active" : ""}`}>
