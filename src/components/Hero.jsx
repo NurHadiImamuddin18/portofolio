@@ -84,7 +84,7 @@ export default function Hero() {
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
               <Image
-                src="/images/mine.png"
+                src="/images/miine.png"
                 alt="Nur Hadi Imamuddin"
                 width={420}
                 height={525}
