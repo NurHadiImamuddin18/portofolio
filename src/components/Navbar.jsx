@@ -82,37 +82,36 @@ export default function Navbar() {
             </button>
           ))}
           {mounted && (
-            <div
-              className="theme-switch"
+            <button
               onClick={toggleTheme}
-              aria-label="Toggle Dark Mode"
               style={{
-                position: "relative",
-                width: "40px",
-                height: "22px",
-                backgroundColor: theme === "light" ? "var(--border)" : "var(--bg-alt)",
-                border: "1px solid var(--border)",
-                borderRadius: "100px",
+                background: "none",
+                border: "none",
                 cursor: "pointer",
+                color: "var(--text)",
                 display: "flex",
                 alignItems: "center",
-                padding: "0 3px",
+                justifyContent: "center",
+                padding: "0",
                 marginLeft: "8px",
-                transition: "background-color 0.3s ease, border-color 0.3s ease",
+                transition: "transform 0.3s ease",
               }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = "rotate(15deg)"}
+              onMouseLeave={(e) => e.currentTarget.style.transform = "rotate(0deg)"}
+              aria-label="Toggle Dark Mode"
             >
-              <div
-                className="theme-switch-thumb"
-                style={{
-                  width: "14px",
-                  height: "14px",
-                  backgroundColor: "var(--text)",
-                  borderRadius: "50%",
-                  transform: theme === "light" ? "translateX(0)" : "translateX(18px)",
-                  transition: "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease",
-                }}
-              />
-            </div>
+              {theme === "light" ? (
+                /* Minimalist Moon for Light Theme (Click to switch to Dark) */
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+              ) : (
+                /* Minimalist Sun for Dark Theme (Click to switch to Light) */
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="12" cy="12" r="9" />
+                </svg>
+              )}
+            </button>
           )}
         </div>
 
