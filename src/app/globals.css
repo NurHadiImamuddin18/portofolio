@@ -332,6 +332,10 @@ html.dark .logo-img {
   height: 100%;
   object-fit: cover;
   border-radius: var(--radius);
+  /* Image Enhancement via CSS */
+  filter: contrast(1.06) saturate(1.08) brightness(1.02);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 /* Theme-specific images */
