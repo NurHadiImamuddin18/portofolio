@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../fiberid"
+		},
+		{
+			"name": "esp32_wifi_manager.ino",
+			"path": "../../../Users/nurha/Documents/PlatformIO/Projects/esp32_wifi_manager.ino"
+		}
+	],
+	"settings": {}
+}

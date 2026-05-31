@@ -80,16 +80,6 @@ export default function Hero() {
                 width={420}
                 height={525}
                 priority
-                className="hero-img-light"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-              <Image
-                src="/images/ko.png"
-                alt="Nur Hadi Imamuddin"
-                width={420}
-                height={525}
-                priority
-                className="hero-img-dark"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>

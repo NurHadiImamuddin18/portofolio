@@ -16,15 +16,7 @@
   --nav-bg: rgba(255, 255, 255, 0.9);
 }
 
-html.dark {
-  --bg: #0a0a0a;
-  --bg-alt: #0e0e0e;
-  --text: #ffffff;
-  --text-muted: #a3a3a3;
-  --accent: #ffffff;
-  --border: #262626;
-  --nav-bg: rgba(10, 10, 10, 0.9);
-}
+
 
 /* Reset */
 *,
@@ -185,9 +177,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.05);
 }
 
-html.dark .logo-img {
-  filter: brightness(0) invert(1);
-}
+
 
 .nav-links {
   display: flex;
@@ -338,18 +328,7 @@ html.dark .logo-img {
   image-rendering: crisp-edges;
 }
 
-/* Theme-specific images */
-.hero-img-dark {
-  display: none !important;
-}
 
-html.dark .hero-img-dark {
-  display: block !important;
-}
-
-html.dark .hero-img-light {
-  display: none !important;
-}
 
 /* ============== ABOUT ============== */
 .about-grid {
