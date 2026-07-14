@@ -1,91 +1,63 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
-import { useLenis } from "lenis/react";
+import Magnetic from "./Magnetic";
+import Marquee from "./Marquee";
 
 export default function Hero() {
-  const lenis = useLenis();
-  const titleVariants = {
-    hidden: { y: "110%" },
-    visible: (i) => ({
-      y: 0,
-      transition: {
-        duration: 1,
-        delay: 0.3 + i * 0.15,
-        ease: [0.19, 1, 0.22, 1],
-      },
-    }),
-  };
-
   return (
     <header className="hero" id="home">
-      <div className="container">
-        <div className="hero-layout">
-          <div className="hero-text">
-            <ScrollReveal>
-              <p className="hero-subtitle">Based in East Java</p>
-            </ScrollReveal>
-
-            <h1 className="hero-title" style={{ fontFamily: "var(--font-heading)" }}>
-              {["Software", "Engineer."].map((word, i) => (
-                <span className="hero-title-line" key={word}>
-                  <motion.span
-                    style={{ display: "block" }}
-                    initial="hidden"
-                    animate="visible"
-                    custom={i}
-                    variants={titleVariants}
-                  >
-                    {word}
-                  </motion.span>
-                </span>
-              ))}
-            </h1>
-
-            <div className="hero-bottom">
-              <ScrollReveal delay={0.4}>
-                <p className="hero-desc">
-                 Specializing in web development and smart device integration,
-                  combining secure backend architecture with a strong problem-solving mindset to deliver reliable systems.
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.5}>
-                <button
-                  className="btn"
-                  onClick={() => {
-                    if (lenis) {
-                      lenis.scrollTo("#works", {
-                        duration: 1.4,
-                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                      });
-                    } else {
-                      const el = document.getElementById("works");
-                      if (el) el.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
-                >
-                  Explore Works
-                </button>
-              </ScrollReveal>
-            </div>
-          </div>
-
-          <ScrollReveal delay={0.3} className="hero-image">
-            <div className="hero-img-wrapper">
-              <Image
-                src="/images/adi.png"
-                alt="Nur Hadi Imamuddin"
-                width={420}
-                height={525}
-                priority
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
+      
+      <div className="container" style={{ position: "relative", zIndex: 2, height: "100%" }}>
+        
+        <div className="hero-content">
+          
+          {/* Left: Dark Pill with Globe */}
+          <ScrollReveal delay={0.3}>
+            <div className="hero-pill">
+              <p className="hero-pill-text">
+                Based <br /> in <br /> East Java
+              </p>
+              <Magnetic>
+                <div className="hero-pill-globe">
+                  <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" />
+                    <ellipse cx="50" cy="50" rx="20" ry="45" />
+                    <ellipse cx="50" cy="50" rx="45" ry="20" />
+                    <path d="M 50 5 L 50 95 M 5 50 L 95 50" />
+                  </svg>
+                </div>
+              </Magnetic>
             </div>
           </ScrollReveal>
+
+          {/* Right: Text & Arrow */}
+          <ScrollReveal delay={0.4}>
+            <div className="hero-right-block">
+              <svg className="hero-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M7 7l10 10M17 7v10H7"/>
+              </svg>
+              <h2 className="hero-right-title">
+                Software <br /> Engineer.
+              </h2>
+            </div>
+          </ScrollReveal>
+
         </div>
       </div>
+
+      {/* Bottom Marquee (Overlays Image) */}
+      <div className="hero-marquee-container">
+        <ScrollReveal delay={0.2}>
+          <Marquee speed={25}>
+            <span className="marquee-item">
+              Nur Hadi Imamuddin <span className="marquee-dash">—</span>
+            </span>
+          </Marquee>
+        </ScrollReveal>
+      </div>
+
     </header>
   );
 }

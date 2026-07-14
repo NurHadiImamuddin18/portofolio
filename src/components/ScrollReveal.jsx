@@ -23,7 +23,7 @@ export default function ScrollReveal({
       transition={{
         duration,
         delay,
-        ease: [0.25, 1, 0.5, 1],
+        ease: [0.16, 1, 0.3, 1], // Expo.easeOut
       }}
     >
       {children}

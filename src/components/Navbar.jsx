@@ -2,37 +2,30 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useLenis } from "lenis/react";
-import Image from "next/image";
+import Magnetic from "./Magnetic";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
   const lenis = useLenis();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 150);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-
-
-  const scrollTo = useCallback(
-    (id) => {
-      setMenuOpen(false);
+  const scrollTo = useCallback((id) => {
+    setMenuOpen(false);
+    setTimeout(() => {
       if (lenis) {
         lenis.scrollTo(`#${id}`, {
           duration: 1.4,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
-      } else {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
       }
-    },
-    [lenis]
-  );
+    }, 400);
+  }, [lenis]);
 
   const links = [
     { label: "About", id: "about" },
@@ -43,38 +36,51 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`} id="navbar">
-      <div className="nav-inner">
-        <button
-          className="nav-logo"
-          onClick={() => scrollTo("home")}
-          style={{ cursor: "pointer", background: "none", border: "none" }}
-        >
-          <Image src="/images/logo.png" alt="Logo" width={40} height={40} className="logo-img" style={{ objectFit: 'contain' }} />
+    <>
+      <nav className={`nav-bar ${scrolled ? "hidden" : ""}`}>
+        <button className="nav-logo" onClick={() => scrollTo("home")} data-cursor="hover">
+          © Code by Nur Hadi
         </button>
+        <div className="nav-links-right">
+          {links.map(l => (
+            <button key={l.id} className="nav-link-inline" onClick={() => scrollTo(l.id)} data-cursor="hover">
+              {l.label}
+            </button>
+          ))}
+        </div>
+      </nav>
 
-        <div className={`nav-links ${menuOpen ? "active" : ""}`}>
+      {/* Floating magnetic burger */}
+      <div style={{ position: "fixed", top: "30px", right: "30px", zIndex: 200 }}>
+        <Magnetic>
+          <button
+            className={`menu-float ${scrolled ? "visible" : ""} ${menuOpen ? "active" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            data-cursor="hover"
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </Magnetic>
+      </div>
+
+      <div className={`fixed-nav-overlay ${menuOpen ? "active" : ""}`} onClick={() => setMenuOpen(false)}></div>
+      
+      <div className={`fixed-nav ${menuOpen ? "active" : ""}`}>
+        <h4 className="fixed-nav-label">Navigation</h4>
+        <div className="fixed-nav-links">
           {links.map((link) => (
             <button
               key={link.id}
-              className="nav-link"
+              className="fixed-nav-link"
               onClick={() => scrollTo(link.id)}
+              data-cursor="hover"
             >
               {link.label}
             </button>
           ))}
-
         </div>
-
-        <button
-          className={`nav-toggle ${menuOpen ? "active" : ""}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation"
-        >
-          <span></span>
-          <span></span>
-        </button>
       </div>
-    </nav>
+    </>
   );
 }

@@ -5,6 +5,7 @@ import ScrollReveal from "./ScrollReveal";
 const columns = [
   {
     title: "Development",
+    desc: "Building robust and scalable software solutions. Ensuring high performance and maintainability across both client and server sides.",
     items: [
       "Front-End Engineering",
       "Back-End Architecture",
@@ -15,6 +16,7 @@ const columns = [
   },
   {
     title: "Technologies",
+    desc: "Leveraging a modern tech stack to build secure, scalable, and interactive digital experiences from scratch.",
     items: [
       "HTML5, CSS3, JavaScript",
       "PHP, Python, C++",
@@ -25,6 +27,7 @@ const columns = [
   },
   {
     title: "Soft Skills",
+    desc: "Combining technical expertise with strong interpersonal skills to collaborate effectively and lead projects to success.",
     items: [
       "Problem Solving",
       "Critical Thinking",
@@ -41,24 +44,24 @@ export default function Skills() {
       <div className="container">
         <ScrollReveal>
           <div className="section-header">
-            <h2 className="section-label">Skills</h2>
+            <h2 className="section-label" style={{ borderBottom: "none", paddingBottom: 0 }}>Skills & Expertise</h2>
           </div>
         </ScrollReveal>
 
-        <div className="skills-grid">
+        <div>
           {columns.map((col, i) => (
-            <ScrollReveal key={col.title} delay={i * 0.1}>
-              <h3
-                className="skills-col-title"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                {col.title}
-              </h3>
-              <ul className="skills-list">
-                {col.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+            <ScrollReveal delay={i * 0.15} key={col.title}>
+              <div className="services-row">
+                <h3 className="services-title">{col.title}</h3>
+                <div className="services-content">
+                  <p>{col.desc}</p>
+                  <ul className="services-list">
+                    {col.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </ScrollReveal>
           ))}
         </div>

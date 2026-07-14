@@ -1,104 +1,273 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
+import gsap from "gsap";
 
 const projects = [
   {
     num: "01",
-    role: "Fullstack",
-    name: "Evolving Framework for Integrated Infrastructure Data",
+    role: "Evolving Framework for Integrated Infrastructure Data",
+    name: "Efidi",
     desc: "An Application for Data Management and Installation Official Reports of New Customers at PT Telkom Akses Malang Region.",
     tech: ["PHP", "MySQL", "Bootstrap", "Python"],
     image: "/images/efidi.png",
     link: "https://efidi.montaklo.id/",
+    year: "2025",
+    bg: "#E0E0E0"
   },
   {
     num: "02",
-    role: "Fullstack",
-    name: "Identification Environment for Trusted Identity Authentication",
+    role: "Identification Environment for Trusted Identity Authentication",
+    name: "Identia",
     desc: "A Web-Based Application for Monitoring, Managing, and Controlling Rooms and Occupants with Web-Enabled Access Control.",
     tech: ["PHP", "MySQL", "C++"],
     image: "/images/identia.png",
     link: "https://identia.montaklo.id/",
+    year: "2024",
+    bg: "#555555"
   },
   {
     num: "03",
-    role: "Fullstack",
-    name: "Managing enterprise network integrity and data streams",
+    role: "Managing enterprise network integrity and data streams",
+    name: "Montaklo",
     desc: "As the core master portal, Montaklo dynamically integrates various independent data monitoring websites",
     tech: ["React", "Next JS"],
     image: "/images/montaklo.png",
     link: "https://montaklo.id/",
+    year: "2023",
+    bg: "#8C8C8C"
   },
 ];
 
 export default function Works() {
+  const [hoveredProject, setHoveredProject] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const previewRef = useRef(null);
+  const sliderRef = useRef(null);
+  const itemsRef = useRef([]);
+
+  // Mouse tracking logic (exactly as before)
+  useEffect(() => {
+    let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    let delayedMouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    let raf;
+
+    const onMouseMove = (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
+
+    const animate = () => {
+      if (previewRef.current) {
+        delayedMouse.x += (mouse.x - delayedMouse.x) * 0.08;
+        delayedMouse.y += (mouse.y - delayedMouse.y) * 0.08;
+
+        gsap.set(previewRef.current, {
+          x: delayedMouse.x - 200, // Center the 400x400 box on mouse
+          y: delayedMouse.y - 200,
+        });
+      }
+      raf = requestAnimationFrame(animate);
+    };
+
+    window.addEventListener("mousemove", onMouseMove);
+    raf = requestAnimationFrame(animate);
+
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  // Intersection Observer to trigger active project on scroll!
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index);
+            setActiveIndex(index);
+            setHoveredProject(projects[index]);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-40% 0px -40% 0px", // Trigger near center
+        threshold: 0
+      }
+    );
+
+    // Second observer for the whole list container to know when to close the modal
+    const containerObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            setHoveredProject(null);
+          }
+        });
+      },
+      { rootMargin: "0px", threshold: 0 }
+    );
+
+    const currentItems = itemsRef.current;
+    currentItems.forEach((item) => {
+      if (item) observer.observe(item);
+    });
+    
+    const listContainer = document.querySelector(".works-list");
+    if (listContainer) containerObserver.observe(listContainer);
+
+    return () => {
+      currentItems.forEach((item) => {
+        if (item) observer.unobserve(item);
+      });
+      if (listContainer) containerObserver.unobserve(listContainer);
+    };
+  }, []);
+
+  // Show/Hide preview box
+  useEffect(() => {
+    if (hoveredProject) {
+      gsap.to(previewRef.current, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" });
+    } else {
+      gsap.to(previewRef.current, { opacity: 0, scale: 0.8, duration: 0.4, ease: "power2.out" });
+    }
+  }, [hoveredProject]);
+
+  // Slide to correct image
+  useEffect(() => {
+    if (sliderRef.current) {
+      gsap.to(sliderRef.current, {
+        yPercent: -activeIndex * 100,
+        duration: 0.5,
+        ease: "power3.inOut"
+      });
+    }
+  }, [activeIndex]);
+
   return (
-    <section className="section" id="works">
-      <div className="container">
+    <section className="section" id="works" style={{ backgroundColor: "#fff", paddingTop: "5em" }}>
+      <div className="container" onMouseLeave={() => setHoveredProject(null)}>
+        
         <ScrollReveal>
           <div className="section-header">
-            <h2 className="section-label">Selected Works</h2>
+            <h2 className="section-label" style={{ borderBottom: "none", paddingBottom: 0, color: "rgba(28,29,32,0.6)" }}>Recent work</h2>
           </div>
         </ScrollReveal>
 
-        <div className="works-list">
+        <div className={`works-list ${hoveredProject ? "is-hovering" : ""}`}>
           {projects.map((project, i) => (
-            <ScrollReveal key={project.num} delay={i * 0.08}>
-              <div className="work-card">
-                <a
+            <div 
+              key={project.num}
+              ref={(el) => (itemsRef.current[i] = el)}
+              data-index={i}
+              style={{
+                borderTop: "1px solid var(--color-border)",
+                borderBottom: i === projects.length - 1 ? "1px solid var(--color-border)" : "none",
+                position: "relative"
+              }}
+            >
+              <ScrollReveal delay={i * 0.1}>
+                <a 
                   href={project.link || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="work-img-wrapper"
+                  className={`work-item ${hoveredProject?.num === project.num ? "active" : ""}`}
+                  onMouseEnter={() => {
+                    setActiveIndex(i);
+                    setHoveredProject(project);
+                  }}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: "4vw 0",
+                    transition: "opacity 0.4s ease, transform 0.4s ease",
+                    opacity: hoveredProject ? (hoveredProject.num === project.num ? 1 : 0.3) : 1,
+                    transform: hoveredProject && hoveredProject.num === project.num ? "translateX(20px)" : "translateX(0)",
+                    textDecoration: "none",
+                    color: "inherit"
+                  }}
                 >
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    width={1920}
-                    height={1080}
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      display: "block"
-                    }}
-                  />
-                  <span className="work-img-overlay">
-                    View
-                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "8px" }}>
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </span>
+                  <h3 style={{ fontSize: "clamp(40px, 6vw, 100px)", fontWeight: 400, letterSpacing: "-0.03em", margin: 0, lineHeight: 1 }}>{project.name}</h3>
+                  <span style={{ fontSize: "16px", fontWeight: 400, textAlign: "right", maxWidth: "350px" }}>{project.role}</span>
                 </a>
-                <div>
-                  <div className="work-meta">
-                    <span
-                      className="work-num"
-                      style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                      {project.num}
-                    </span>
-                    <span className="work-role">{project.role}</span>
-                  </div>
-                  <h3
-                    className="work-name"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    {project.name}
-                  </h3>
-                  <p className="work-desc">{project.desc}</p>
-                  <div className="work-tech">
-                    {project.tech.map((t) => (
-                      <span key={t}>{t}</span>
-                    ))}
-                  </div>
+              </ScrollReveal>
+            </div>
+          ))}
+        </div>
+
+        {/* Floating Preview Modal (Layout & shape unchanged) */}
+        <div 
+          ref={previewRef}
+          style={{
+            position: "fixed",
+            top: 0, left: 0,
+            width: "400px", height: "400px",
+            pointerEvents: "none",
+            zIndex: 50,
+            opacity: 0,
+            transform: "scale(0.8)",
+            willChange: "transform",
+            overflow: "hidden", 
+          }}
+        >
+          {/* Vertical Slider Container */}
+          <div 
+            ref={sliderRef}
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              willChange: "transform"
+            }}
+          >
+            {projects.map((proj) => (
+              <div 
+                key={proj.num}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  flexShrink: 0, 
+                  backgroundColor: proj.bg,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+              >
+                <div style={{
+                  position: "relative",
+                  width: "calc(100% - 120px)",
+                  aspectRatio: "16/9",
+                }}>
+                  <Image
+                    src={proj.image}
+                    alt={proj.name}
+                    fill
+                    style={{ objectFit: "contain" }}
+                    priority={false}
+                  />
                 </div>
               </div>
-            </ScrollReveal>
-          ))}
+            ))}
+          </div>
+          {/* View label */}
+          <div style={{
+            position: "absolute",
+            top: "50%", left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "80px", height: "80px",
+            backgroundColor: "var(--color-blue)",
+            borderRadius: "50%",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            color: "#fff", fontSize: "14px", fontWeight: 500, zIndex: 2
+          }}>
+            View
+          </div>
         </div>
       </div>
     </section>
