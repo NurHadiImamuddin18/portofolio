@@ -3,45 +3,48 @@
    ============================================ */
 
 @font-face {
-  font-family: 'Neue Montreal';
-  src: url('https://dennissnellenberg.com/assets/fonts/NeueMontreal-Light.otf') format('opentype');
+  font-family: "Neue Montreal";
+  src: url("https://dennissnellenberg.com/assets/fonts/NeueMontreal-Light.otf")
+    format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Neue Montreal';
-  src: url('https://dennissnellenberg.com/assets/fonts/NeueMontreal-Regular.otf') format('opentype');
+  font-family: "Neue Montreal";
+  src: url("https://dennissnellenberg.com/assets/fonts/NeueMontreal-Regular.otf")
+    format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Neue Montreal';
-  src: url('https://dennissnellenberg.com/assets/fonts/NeueMontreal-Medium.otf') format('opentype');
+  font-family: "Neue Montreal";
+  src: url("https://dennissnellenberg.com/assets/fonts/NeueMontreal-Medium.otf")
+    format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
-  --color-dark: #1C1D20;
+  --color-dark: #1c1d20;
   --color-dark-dark: #141517;
-  --color-light: #FFFFFF;
-  --color-blue: #455CE9;
-  --color-blue-dark: #334BD3;
-  --color-gray: #999D9E;
-  --color-lightgray: #E9EAEB;
-  --color-white: #FFFFFF;
-  
-  --color-border: rgba(28, 29, 32, 0.175);
-  --color-text: #1C1D20;
-  --color-text-light: #FFFFFF;
+  --color-light: #ffffff;
+  --color-blue: #455ce9;
+  --color-blue-dark: #334bd3;
+  --color-gray: #999d9e;
+  --color-lightgray: #e9eaeb;
+  --color-white: #ffffff;
 
-  --ease: cubic-bezier(.7, 0, .3, 1);
-  --ease-slow: cubic-bezier(.7, 0, .2, 1);
+  --color-border: rgba(28, 29, 32, 0.175);
+  --color-text: #1c1d20;
+  --color-text-light: #ffffff;
+
+  --ease: cubic-bezier(0.7, 0, 0.3, 1);
+  --ease-slow: cubic-bezier(0.7, 0, 0.2, 1);
 
   --section-padding: clamp(5em, 21vh, 12em);
   --container-padding: clamp(2.5em, 8vw, 8em);
@@ -54,12 +57,16 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   -webkit-font-smoothing: antialiased;
   background-color: var(--color-gray);
   color: var(--color-text);
-  font-family: 'Neue Montreal', -apple-system, sans-serif;
+  font-family:
+    "Neue Montreal",
+    -apple-system,
+    sans-serif;
   font-size: clamp(16px, 1.2vw, 19px);
   line-height: 1.6;
   font-weight: 400;
@@ -71,7 +78,10 @@ html, body {
   color: var(--color-white);
 }
 
-a, button, input, textarea {
+a,
+button,
+input,
+textarea {
   font-family: inherit;
 }
 
@@ -102,7 +112,7 @@ ul {
   border-bottom-left-radius: 50% 100px;
   border-bottom-right-radius: 50% 100px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
 
@@ -163,8 +173,6 @@ ul {
   fill: var(--color-dark);
 }
 
-
-
 /* -------------- Magnetic Button -------------- */
 .magnetic-btn-wrap {
   display: flex;
@@ -194,7 +202,7 @@ ul {
 }
 
 .magnetic-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   left: 0;
@@ -202,7 +210,9 @@ ul {
   height: 100%;
   background: var(--color-blue);
   border-radius: 50%;
-  transition: top 0.4s var(--ease), border-radius 0.4s var(--ease);
+  transition:
+    top 0.4s var(--ease),
+    border-radius 0.4s var(--ease);
 }
 
 .magnetic-btn-blue::before {
@@ -255,7 +265,7 @@ ul {
 }
 
 .nav-link-inline::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 1px;
@@ -287,7 +297,9 @@ ul {
   border: none;
   transform: scale(0);
   opacity: 0;
-  transition: transform 0.6s var(--ease), opacity 0.4s var(--ease);
+  transition:
+    transform 0.6s var(--ease),
+    opacity 0.4s var(--ease);
 }
 
 .menu-float.visible {
@@ -337,7 +349,7 @@ ul {
   text-transform: uppercase;
   color: var(--color-gray);
   margin-bottom: 40px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 12px;
 }
 
@@ -353,7 +365,9 @@ ul {
   background: none;
   border: none;
   text-align: left;
-  transition: transform 0.3s var(--ease), opacity 0.3s ease;
+  transition:
+    transform 0.3s var(--ease),
+    opacity 0.3s ease;
   opacity: 0.6;
 }
 
@@ -368,7 +382,7 @@ ul {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 99;
   opacity: 0;
   pointer-events: none;
@@ -379,7 +393,6 @@ ul {
   opacity: 1;
   pointer-events: all;
 }
-
 
 /* -------------- Hero -------------- */
 .hero {
@@ -434,7 +447,7 @@ ul {
 .hero-pill-globe {
   width: clamp(55px, 4.5vw, 75px);
   height: clamp(55px, 4.5vw, 75px);
-  background: #999D9E;
+  background: #999d9e;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -448,18 +461,32 @@ ul {
 }
 
 @keyframes spin-globe {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-pill-globe svg path,
@@ -520,7 +547,7 @@ ul {
   color: var(--color-light);
   padding-right: 4vw;
   letter-spacing: -0.04em;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .marquee-dash {
@@ -528,10 +555,13 @@ ul {
 }
 
 @keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
-
 
 /* -------------- About -------------- */
 .about-top {
@@ -550,7 +580,7 @@ ul {
 
 .about-body {
   font-size: clamp(16px, 1.2vw, 19px);
-  color: rgba(28,29,32,0.8);
+  color: rgba(28, 29, 32, 0.8);
 }
 
 .about-btn-wrap {
@@ -584,7 +614,7 @@ ul {
 }
 
 .services-content p {
-  color: rgba(28,29,32,0.7);
+  color: rgba(28, 29, 32, 0.7);
   margin-bottom: 24px;
 }
 
@@ -601,7 +631,7 @@ ul {
 }
 
 .services-list li::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 9px;
@@ -618,7 +648,9 @@ ul {
   align-items: center;
   padding: 40px 0;
   border-top: 1px solid var(--color-border);
-  transition: opacity 0.4s var(--ease), padding 0.4s var(--ease);
+  transition:
+    opacity 0.4s var(--ease),
+    padding 0.4s var(--ease);
 }
 
 .works-list:hover .work-item {
@@ -653,7 +685,9 @@ ul {
   z-index: 50;
   opacity: 0;
   transform: scale(0.8);
-  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+  transition:
+    opacity 0.3s var(--ease),
+    transform 0.3s var(--ease);
   will-change: transform;
 }
 
@@ -667,7 +701,6 @@ ul {
   height: 100%;
   object-fit: cover;
 }
-
 
 /* -------------- Contact -------------- */
 .contact-section {
@@ -699,7 +732,7 @@ ul {
 
 .contact-layout {
   display: grid;
-  grid-template-columns: 7fr 3fr;
+  grid-template-columns: 3fr 7fr;
   gap: 6vw;
   margin-top: 100px;
   border-top: 1px solid var(--color-border-light);
@@ -716,7 +749,7 @@ ul {
 
 .input-num {
   font-size: 14px;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .contact-form input,
@@ -732,7 +765,18 @@ ul {
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: rgba(255,255,255,0.3);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Fix browser autofill background */
+.contact-form input:-webkit-autofill,
+.contact-form input:-webkit-autofill:hover,
+.contact-form input:-webkit-autofill:focus,
+.contact-form textarea:-webkit-autofill,
+.contact-form textarea:-webkit-autofill:hover,
+.contact-form textarea:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--color-light) !important;
 }
 
 /* -------------- Footer -------------- */
@@ -795,7 +839,18 @@ ul {
   }
 }
 @media (max-width: 768px) {
-  .custom-cursor { display: none !important; }
-  html, body, a, button, input, textarea { cursor: auto !important; }
-  .fixed-nav { width: 100%; }
+  .custom-cursor {
+    display: none !important;
+  }
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea {
+    cursor: auto !important;
+  }
+  .fixed-nav {
+    width: 100%;
+  }
 }

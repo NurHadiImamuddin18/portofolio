@@ -42,19 +42,32 @@ export async function POST(request) {
     const result = await fonntResponse.json();
 
     if (result.status === true || result.status === "true") {
+      // Sanitize whatsapp number (remove spaces, +, -, etc)
+      let sanitizedWhatsapp = whatsapp.replace(/[^0-9]/g, "");
+      
+      // Convert 62 prefix to 0
+      if (sanitizedWhatsapp.startsWith("62")) {
+        sanitizedWhatsapp = "0" + sanitizedWhatsapp.substring(2);
+      }
       // Also send auto-reply to the visitor
-      const autoReply = `Halo *${name}* 👋\n\nTerima kasih telah menghubungi saya melalui portfolio website!\n\nPesan Anda sudah saya terima dan akan segera saya balas.\n\nSalam,\n*Nur Hadi Imamuddin*`;
+      const autoReply = `Halo *${name}* 👋\n\nTerima kasih telah menghubungi saya melalui website!\n\nPesan Anda sudah saya terima dan akan segera saya balas.\n\nSalam,\n*Nur Hadi Imamuddin*`;
 
-      await fetch("https://api.fonnte.com/send", {
-        method: "POST",
-        headers: {
-          Authorization: token,
-        },
-        body: new URLSearchParams({
-          target: whatsapp,
-          message: autoReply,
-        }),
-      });
+      try {
+        const autoReplyRes = await fetch("https://api.fonnte.com/send", {
+          method: "POST",
+          headers: {
+            Authorization: token,
+          },
+          body: new URLSearchParams({
+            target: sanitizedWhatsapp,
+            message: autoReply,
+          }),
+        });
+        const autoReplyData = await autoReplyRes.json();
+        console.log("Fonnte auto-reply response:", autoReplyData);
+      } catch (err) {
+        console.error("Failed to send auto-reply:", err);
+      }
 
       return NextResponse.json({ success: true, message: "Pesan berhasil dikirim!" });
     } else {
