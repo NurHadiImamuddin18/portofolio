@@ -52,7 +52,6 @@ export default function Navbar() {
 
       {/* Floating magnetic burger */}
       <div style={{ position: "fixed", top: "30px", right: "30px", zIndex: 200 }}>
-        <Magnetic>
           <button
             className={`menu-float ${scrolled ? "visible" : ""} ${menuOpen ? "active" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
@@ -61,7 +60,6 @@ export default function Navbar() {
             <span></span>
             <span></span>
           </button>
-        </Magnetic>
       </div>
 
       <div className={`fixed-nav-overlay ${menuOpen ? "active" : ""}`} onClick={() => setMenuOpen(false)}></div>

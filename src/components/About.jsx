@@ -18,14 +18,23 @@ export default function About() {
   return (
     <section className="section" id="about">
       <div className="container">
-        
         <div className="about-top">
           <ScrollReveal>
-            <div style={{ position: "relative", width: "clamp(280px, 30vw, 420px)", height: "clamp(350px, 40vw, 530px)", borderRadius: "20px", overflow: "hidden", backgroundColor: "var(--color-lightgray)", marginLeft: "5vw" }}>
-              <Image 
-                src="/images/adi.png" 
-                alt="Nur Hadi Imamuddin" 
-                fill 
+            <div
+              style={{
+                position: "relative",
+                width: "clamp(280px, 30vw, 420px)",
+                height: "clamp(350px, 40vw, 530px)",
+                borderRadius: "20px",
+                overflow: "hidden",
+                backgroundColor: "var(--color-lightgray)",
+                marginLeft: "5vw",
+              }}
+            >
+              <Image
+                src="/images/adi.png"
+                alt="Nur Hadi Imamuddin"
+                fill
                 style={{ objectFit: "cover", objectPosition: "center top" }}
               />
             </div>
@@ -33,13 +42,26 @@ export default function About() {
 
           <ScrollReveal delay={0.2}>
             <p className="about-body" style={{ marginBottom: "40px" }}>
-              Specializing in web development and smart device integration, combining secure backend architecture with a strong problem-solving mindset to deliver reliable systems.
+              Specializing in web development and smart device integration,
+              combining secure backend architecture with a strong
+              problem-solving mindset to deliver reliable systems.
             </p>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+            >
               {details.map((d) => (
                 <div key={d.label} style={{ display: "flex", gap: "20px" }}>
-                  <span style={{ width: "120px", color: "rgba(28,29,32,0.5)", fontSize: "14px", textTransform: "uppercase" }}>{d.label}</span>
+                  <span
+                    style={{
+                      width: "120px",
+                      color: "rgba(28,29,32,0.5)",
+                      fontSize: "14px",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {d.label}
+                  </span>
                   <span style={{ fontSize: "16px" }}>{d.value}</span>
                 </div>
               ))}
@@ -47,16 +69,18 @@ export default function About() {
 
             <div className="about-btn-wrap" style={{ marginTop: "60px" }}>
               <Magnetic>
-                <div className="magnetic-btn-wrap" onClick={() => lenis && lenis.scrollTo("#contact")}>
+                <div
+                  className="magnetic-btn-wrap"
+                  onClick={() => (window.location.href = "/cv")}
+                >
                   <button className="magnetic-btn">
-                    <span>About me</span>
+                    <span>Curriculum Vitae</span>
                   </button>
                 </div>
               </Magnetic>
             </div>
           </ScrollReveal>
         </div>
-
       </div>
     </section>
   );
