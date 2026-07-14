@@ -5,7 +5,6 @@ import { createPortal } from "react-dom";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { certifications } from "@/data/certifications";
 
 export default function CertificateDetailPage() {
@@ -48,7 +47,7 @@ export default function CertificateDetailPage() {
           {/* Certificate detail layout */}
           <div style={{ display: "flex", gap: "60px", alignItems: "flex-start", flexWrap: "wrap" }}>
             {/* Left: Image */}
-            <div style={{ flex: "1 1 55%", minWidth: "300px", background: "#f9f9f9", borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(0,0,0,0.05)", padding: "30px" }}>
+            <div style={{ flex: "1 1 55%", minWidth: "300px", background: "#fff", borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(0,0,0,0.05)", padding: "30px" }}>
               <img src={cert.image} alt={cert.title} style={{ width: "100%", height: "auto", display: "block", borderRadius: "8px" }} />
             </div>
 
@@ -78,8 +77,6 @@ export default function CertificateDetailPage() {
           </div>
         </div>
       </main>
-
-      <Footer />
 
       {/* Modal for viewing the certificate PDF */}
       {mounted && modalOpen && createPortal(
