@@ -101,7 +101,7 @@ export default function Contact() {
                     lineHeight: 1,
                   }}
                 >
-                  Let's work
+                  Let&apos;s work
                 </h2>
               </div>
               <h2
