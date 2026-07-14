@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import ScrollReveal from "./ScrollReveal";
 import Magnetic from "./Magnetic";
 
@@ -78,6 +79,11 @@ function ExpBlock({ categoryTitle, items, delay, onOpenModal, style }) {
 
 export default function Experience() {
   const [modalPdf, setModalPdf] = useState(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section className="section" id="experience" style={{ paddingBottom: "0", paddingTop: "5em" }}>
@@ -110,13 +116,14 @@ export default function Experience() {
           </Magnetic>
         </div>
 
-        {modalPdf && (
+        {mounted && modalPdf && createPortal(
           <div className="pdf-modal-overlay" onClick={() => setModalPdf(null)} style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100vh", background: "rgba(0,0,0,0.8)", zIndex: 9999, display: "flex", justifyContent: "center", alignItems: "center" }}>
             <div className="pdf-modal-content" onClick={(e) => e.stopPropagation()} style={{ width: "80%", height: "80%", background: "#fff", position: "relative" }}>
-              <button onClick={() => setModalPdf(null)} style={{ position: "absolute", top: "-40px", right: 0, background: "none", border: "none", color: "#fff", fontSize: "24px" }}>✕</button>
+              <button onClick={() => setModalPdf(null)} style={{ position: "absolute", top: "-40px", right: 0, background: "none", border: "none", color: "#fff", fontSize: "24px", cursor: "pointer" }}>✕</button>
               <iframe src={modalPdf} style={{ width: "100%", height: "100%", border: "none" }} title="Certificate PDF" />
             </div>
-          </div>
+          </div>,
+          document.body
         )}
       </div>
     </section>

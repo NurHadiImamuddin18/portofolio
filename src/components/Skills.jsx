@@ -15,17 +15,6 @@ const columns = [
     ],
   },
   {
-    title: "Technologies",
-    desc: "Leveraging a modern tech stack to build secure, scalable, and interactive digital experiences from scratch.",
-    items: [
-      "HTML5, CSS3, JavaScript",
-      "PHP, Python, C++",
-      "Laravel, Native, React",
-      "MySQL, Firebase",
-      "Git, Node.js",
-    ],
-  },
-  {
     title: "Soft Skills",
     desc: "Combining technical expertise with strong interpersonal skills to collaborate effectively and lead projects to success.",
     items: [

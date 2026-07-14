@@ -7,7 +7,7 @@ import Preloader from "@/components/Preloader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Skills from "@/components/Skills";
+import TechMarquee from "@/components/TechMarquee";
 import Works from "@/components/Works";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
@@ -40,7 +40,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <About />
-        <Skills />
+        <TechMarquee />
         <Works />
         <Experience />
         
