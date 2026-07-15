@@ -7,8 +7,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { certifications } from "@/data/certifications";
 
-export default function CertificateDetailPage() {
-  const params = useParams();
+export default function CertificateDetailPage({ params }) {
   const certId = parseInt(params.id);
   const cert = certifications.find((c) => c.id === certId);
 

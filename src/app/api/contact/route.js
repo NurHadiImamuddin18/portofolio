@@ -1,86 +1,85 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { name, email, whatsapp, message } = body;
+    const { name, email, message } = body;
 
     // Validate required fields
-    if (!name || !whatsapp || !message) {
+    if (!name || !email || !message) {
       return NextResponse.json(
-        { success: false, error: "Nama, nomor WhatsApp, dan pesan wajib diisi." },
+        { success: false, error: "Nama, email, dan pesan wajib diisi." },
         { status: 400 }
       );
     }
 
-    const token = process.env.FONNTE_TOKEN;
-    const ownerNumber = process.env.OWNER_WA_NUMBER;
+    const emailUser = process.env.EMAIL_USER; 
+    const emailPass = process.env.EMAIL_PASS;
 
-    if (!token || !ownerNumber) {
-      console.error("Missing FONNTE_TOKEN or OWNER_WA_NUMBER in environment variables");
+    if (!emailUser || !emailPass) {
+      console.error("Missing EMAIL_USER or EMAIL_PASS in environment variables");
       return NextResponse.json(
         { success: false, error: "Server configuration error." },
         { status: 500 }
       );
     }
 
-    // Format the message to send to the owner
-    const formattedMessage = `📩 *Pesan Baru dari Portfolio*\n\n👤 *Nama:* ${name}\n📧 *Email:* ${email || "-"}\n📱 *WhatsApp:* ${whatsapp}\n\n💬 *Pesan:*\n${message}`;
-
-    // Send message to the OWNER via Fonnte API
-    const fonntResponse = await fetch("https://api.fonnte.com/send", {
-      method: "POST",
-      headers: {
-        Authorization: token,
+    // Configure nodemailer transporter
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: emailUser,
+        pass: emailPass,
       },
-      body: new URLSearchParams({
-        target: ownerNumber,
-        message: formattedMessage,
-      }),
     });
 
-    const result = await fonntResponse.json();
+    // 1. Send the primary email to Nur Hadi
+    const mailToOwner = {
+      from: `"${name} (Portfolio)" <${emailUser}>`,
+      replyTo: email,
+      to: 'nurhadiimamuddin@gmail.com', // Sending to the personal email
+      subject: `Pesan Baru dari Portfolio: ${name}`,
+      text: `Pesan Baru dari Portfolio\n\nNama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`,
+      html: `
+        <h3>Pesan Baru dari Portfolio</h3>
+        <p><strong>Nama:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Pesan:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `
+    };
 
-    if (result.status === true || result.status === "true") {
-      // Sanitize whatsapp number (remove spaces, +, -, etc)
-      let sanitizedWhatsapp = whatsapp.replace(/[^0-9]/g, "");
-      
-      // Convert 62 prefix to 0
-      if (sanitizedWhatsapp.startsWith("62")) {
-        sanitizedWhatsapp = "0" + sanitizedWhatsapp.substring(2);
-      }
-      // Also send auto-reply to the visitor
-      const autoReply = `Halo *${name}* 👋\n\nTerima kasih telah menghubungi saya melalui website!\n\nPesan Anda sudah saya terima dan akan segera saya balas.\n\nSalam,\n*Nur Hadi Imamuddin*`;
+    await transporter.sendMail(mailToOwner);
 
-      try {
-        const autoReplyRes = await fetch("https://api.fonnte.com/send", {
-          method: "POST",
-          headers: {
-            Authorization: token,
-          },
-          body: new URLSearchParams({
-            target: sanitizedWhatsapp,
-            message: autoReply,
-          }),
-        });
-        const autoReplyData = await autoReplyRes.json();
-        console.log("Fonnte auto-reply response:", autoReplyData);
-      } catch (err) {
-        console.error("Failed to send auto-reply:", err);
-      }
+    // 2. Send the auto-reply to the visitor
+    const autoReply = {
+      from: `"Nur Hadi Imamuddin" <${emailUser}>`,
+      to: email,
+      subject: "Terima kasih telah menghubungi saya!",
+      text: `Halo ${name},\n\nTerima kasih telah menghubungi saya melalui website!\n\nPesan Anda sudah saya terima dan akan segera saya balas.\n\nSalam,\nNur Hadi Imamuddin`,
+      html: `
+        <p>Halo <strong>${name}</strong> 👋,</p>
+        <p>Terima kasih telah menghubungi saya melalui website!</p>
+        <p>Pesan Anda sudah saya terima dan akan segera saya balas.</p>
+        <br/>
+        <p>Salam,</p>
+        <p><strong>Nur Hadi Imamuddin</strong></p>
+      `
+    };
 
-      return NextResponse.json({ success: true, message: "Pesan berhasil dikirim!" });
-    } else {
-      console.error("Fonnte API error:", result);
-      return NextResponse.json(
-        { success: false, error: result.reason || "Gagal mengirim pesan." },
-        { status: 500 }
-      );
+    try {
+      await transporter.sendMail(autoReply);
+    } catch (err) {
+      console.error("Failed to send auto-reply:", err);
     }
+
+    return NextResponse.json({ success: true, message: "Pesan berhasil dikirim!" });
+
   } catch (error) {
     console.error("Contact API error:", error);
     return NextResponse.json(
-      { success: false, error: "Terjadi kesalahan server." },
+      { success: false, error: "Terjadi kesalahan saat mengirim pesan." },
       { status: 500 }
     );
   }

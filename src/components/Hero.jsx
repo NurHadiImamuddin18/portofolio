@@ -8,11 +8,11 @@ import Marquee from "./Marquee";
 export default function Hero() {
   return (
     <header className="hero" id="home">
-      
-      <div className="container" style={{ position: "relative", zIndex: 2, height: "100%" }}>
-        
+      <div
+        className="container"
+        style={{ position: "relative", zIndex: 2, height: "100%" }}
+      >
         <div className="hero-content">
-          
           {/* Left: Dark Pill with Globe */}
           <ScrollReveal delay={0.3}>
             <div className="hero-pill">
@@ -35,15 +35,20 @@ export default function Hero() {
           {/* Right: Text & Arrow */}
           <ScrollReveal delay={0.4}>
             <div className="hero-right-block">
-              <svg className="hero-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M7 7l10 10M17 7v10H7"/>
+              <svg
+                className="hero-arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M7 7l10 10M17 7v10H7" />
               </svg>
               <h2 className="hero-right-title">
                 Software <br /> Engineer.
               </h2>
             </div>
           </ScrollReveal>
-
         </div>
       </div>
 
@@ -57,7 +62,6 @@ export default function Hero() {
           </Marquee>
         </ScrollReveal>
       </div>
-
     </header>
   );
 }

@@ -9,7 +9,6 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    whatsapp: "",
     message: "",
   });
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
@@ -35,7 +34,7 @@ export default function Contact() {
 
       if (data.success) {
         setStatus("success");
-        setFormData({ name: "", email: "", whatsapp: "", message: "" });
+        setFormData({ name: "", email: "", message: "" });
         setTimeout(() => setStatus("idle"), 3000);
       } else {
         setStatus("error");
@@ -257,27 +256,13 @@ export default function Contact() {
                       type="email"
                       id="email"
                       name="email"
+                      required
                       placeholder="Your Email"
                       value={formData.email}
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="input-group" style={{ borderBottom: "1px solid rgba(255,255,255,0.2)", paddingBottom: "15px", marginBottom: "30px" }}>
-                    <label style={{ display: "none" }} htmlFor="whatsapp">
-                      WhatsApp
-                    </label>
-                    <input
-                      type="tel"
-                      id="whatsapp"
-                      name="whatsapp"
-                      required
-                      pattern="^08[0-9]{8,12}$"
-                      title="Nomor WhatsApp harus diawali dengan 08 (misal: 081234567890)"
-                      placeholder="Your WhatsApp"
-                      value={formData.whatsapp}
-                      onChange={handleChange}
-                    />
-                  </div>
+
                   <div className="input-group" style={{ borderBottom: "1px solid rgba(255,255,255,0.2)", paddingBottom: "15px", marginBottom: "30px" }}>
                     <label style={{ display: "none" }} htmlFor="message">
                       Message
